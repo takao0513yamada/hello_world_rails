@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    # binding.pry
     User.create!(user_params)
   end
 
@@ -22,6 +23,11 @@ class UsersController < ApplicationController
 
   private
     def user_params
+      # binding.pry
       params.require(:user).permit(:account, :name, :email)
+    end
+
+    def set_user
+      @user = User.find(params[:id])
     end
 end
