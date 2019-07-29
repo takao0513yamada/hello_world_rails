@@ -22,6 +22,7 @@
 
 <template>
   <div id="users-list">
+    <h2>users_list</h2>
     <ul>
       <li v-for="user in users" v-bind:key="user.account">
         <div>{{user.account}}</div>
