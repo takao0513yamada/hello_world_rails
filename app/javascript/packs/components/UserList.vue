@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <div> id="users-list">
+  <div id="users-list">
     <ul>
       <li v-for="user in users" v-bind:key="user.account">
         <div>{{user.account}}</div>
