@@ -1,15 +1,17 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
+  before_action :set_article, only: [:update, :destroy]
 
   def index
     @articles = Article.all
   end
 
   def show
+    @article = Article.find(params[:id])
   end
 
   def create
-    Article.create!(article_params)
+    @article = current_user.articles.create!(article_params)
   end
 
   def update
@@ -22,7 +24,7 @@ class ArticlesController < ApplicationController
 
   private
     def set_article
-      @article = Article.find(params[:id])
+      @article = current_user.articles.find(params[:id])
     end
 
     def article_params
